@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #401077;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #2b0952;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Calculadora de IMC</h2>
+    <label for="peso">Peso (kg):</label>
+    <input type="number" id="peso">
+    
+    <label for="altura">Altura (m):</label>
+    <input type="number" id="altura" step="0.01">
+    
+    <button onclick="calcularIMC()">Calcular IMC</button>
+    
+    <div class="result" id="resultado"></div>
+</div>
+
+<script>
+    function calcularIMC() {
+        const peso = parseFloat(document.getElementById('peso').value);
+        const altura = parseFloat(document.getElementById('altura').value);
+
+        if (peso && altura) {
+            const imc = (peso / (altura * altura)).toFixed(2);
+            document.getElementById('resultado').innerText = `Seu IMC é: ${imc}`;
+        } else {
+            document.getElementById('resultado').innerText = 'Por favor, insira valores válidos.';
+        }
+    }
+</script>
+
+</body>
+</html>
 
